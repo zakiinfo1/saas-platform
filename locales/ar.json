@@ -1,0 +1,26 @@
+{
+    "common": {
+        "dashboard": "لوحة التحكم",
+        "products": "المنتجات",
+        "clients": "العملاء",
+        "sales": "المبيعات",
+        "integrations": "الربط",
+        "reports": "التقارير",
+        "settings": "الإعدادات",
+        "logout": "تسجيل الخروج",
+        "welcome": "مرحباً بعودتك",
+        "add_new": "إضافة جديد",
+        "save": "حفظ",
+        "cancel": "إلغاء",
+        "delete": "حذف",
+        "edit": "تعديل",
+        "loading": "جاري التحميل...",
+        "search": "بحث..."
+    },
+    "dashboard_stats": {
+        "total_leads": "إجمالي العملاء المحتملين",
+        "total_sales": "إجمالي المبيعات",
+        "conversion_rate": "معدل التحويل",
+        "ai_insights": "رؤى الذكاء الاصطناعي اليوم"
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "common": {
+        "dashboard": "Dashboard",
+        "products": "Products",
+        "clients": "Clients",
+        "sales": "Sales",
+        "integrations": "Integrations",
+        "reports": "Reports",
+        "settings": "Settings",
+        "logout": "Logout",
+        "welcome": "Welcome back",
+        "add_new": "Add New",
+        "save": "Save",
+        "cancel": "Cancel",
+        "delete": "Delete",
+        "edit": "Edit",
+        "loading": "Loading...",
+        "search": "Search..."
+    },
+    "dashboard_stats": {
+        "total_leads": "Total Leads",
+        "total_sales": "Total Sales",
+        "conversion_rate": "Conversion Rate",
+        "ai_insights": "Today's AI Insights"
+    }
+}
