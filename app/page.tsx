@@ -4,13 +4,13 @@ import { ArrowRight, LayoutDashboard, LogIn } from "lucide-react";
 
 export default function Home() {
     return (
-        <main className="flex min-h-screen flex-col items-center justify-center p-24 bg-gradient-to-b from-background to-muted">
-            <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex absolute top-10 px-10">
-                <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-                    SaaS Platform&nbsp;
-                    <code className="font-mono font-bold">v0.1.0</code>
-                </p>
-                <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
+        <main className="flex min-h-screen flex-col bg-background">
+            {/* Navbar */}
+            <nav className="flex items-center justify-between p-6 border-b">
+                <div className="font-bold text-xl">
+                    SaaS Platform <span className="text-sm font-normal text-muted-foreground ml-2">v0.1.0</span>
+                </div>
+                <div className="flex gap-4">
                     <Link href="/auth/signin">
                         <Button variant="ghost" size="sm" className="gap-2">
                             <LogIn className="h-4 w-4" />
@@ -18,10 +18,11 @@ export default function Home() {
                         </Button>
                     </Link>
                 </div>
-            </div>
+            </nav>
 
-            <div className="relative flex place-items-center flex-col gap-6 text-center">
-                <div className="space-y-2">
+            {/* Hero Section */}
+            <section className="flex-1 flex flex-col items-center justify-center p-8 text-center space-y-8 max-w-5xl mx-auto">
+                <div className="space-y-4">
                     <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
                         Your Complete SaaS Solution
                     </h1>
@@ -31,7 +32,7 @@ export default function Home() {
                     </p>
                 </div>
 
-                <div className="flex gap-4 items-center mt-8">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Link href="/dashboard">
                         <Button size="lg" className="gap-2 text-lg h-12 px-8">
                             <LayoutDashboard className="h-5 w-5" />
@@ -45,45 +46,37 @@ export default function Home() {
                         </Button>
                     </Link>
                 </div>
-            </div>
+            </section>
 
-            <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-3 lg:text-left mt-24 gap-8">
-                <div className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30">
+            {/* Features Grid */}
+            <section className="grid grid-cols-1 md:grid-cols-3 gap-8 p-8 max-w-6xl mx-auto mb-16">
+                <div className="group rounded-lg border p-6 hover:shadow-lg transition-all">
                     <h2 className={`mb-3 text-2xl font-semibold`}>
-                        Dashboard{" "}
-                        <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-                            -&gt;
-                        </span>
+                        Dashboard
                     </h2>
-                    <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
+                    <p className="text-muted-foreground">
                         Comprehensive overview of your business metrics.
                     </p>
                 </div>
 
-                <div className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30">
+                <div className="group rounded-lg border p-6 hover:shadow-lg transition-all">
                     <h2 className={`mb-3 text-2xl font-semibold`}>
-                        Authentication{" "}
-                        <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-                            -&gt;
-                        </span>
+                        Authentication
                     </h2>
-                    <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
+                    <p className="text-muted-foreground">
                         Secure access via Google and Facebook.
                     </p>
                 </div>
 
-                <div className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30">
+                <div className="group rounded-lg border p-6 hover:shadow-lg transition-all">
                     <h2 className={`mb-3 text-2xl font-semibold`}>
-                        Integrations{" "}
-                        <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-                            -&gt;
-                        </span>
+                        Integrations
                     </h2>
-                    <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
+                    <p className="text-muted-foreground">
                         Connect specifically with Facebook & WhatsApp.
                     </p>
                 </div>
-            </div>
+            </section>
         </main>
     );
 }
