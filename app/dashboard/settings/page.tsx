@@ -1,20 +1,36 @@
+
 "use client";
 
-import { useSession } from "next-auth/react";
+import { useEffect, useState } from "react";
+import { createClient } from "@/lib/supabase/client";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useState } from "react";
 import { Eye, EyeOff, Copy, Check } from "lucide-react";
 
 export default function SettingsPage() {
-    const { data: session } = useSession();
+    const [accessToken, setAccessToken] = useState<string>("");
     const [showToken, setShowToken] = useState(false);
     const [copied, setCopied] = useState(false);
 
-    // @ts-ignore
-    const accessToken = session?.accessToken || "No token found. Sign in with Facebook/Google again.";
+    useEffect(() => {
+        const getSession = async () => {
+            const supabase = createClient();
+            const { data: { session } } = await supabase.auth.getSession();
+
+            // Note: provider_token is only available immediately after sign in on the client side
+            // if configured in Supabase. Otherwise, this might display the Supabase access token.
+            if (session?.provider_token) {
+                setAccessToken(session.provider_token);
+            } else if (session?.access_token) {
+                setAccessToken("Supabase Token: " + session.access_token.substring(0, 20) + "... (Provider token not persisted)");
+            } else {
+                setAccessToken("No active session found.");
+            }
+        };
+        getSession();
+    }, []);
 
     const handleCopy = () => {
         navigator.clipboard.writeText(accessToken);

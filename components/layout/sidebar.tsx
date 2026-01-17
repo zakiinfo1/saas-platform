@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
+import { Button } from '@/components/ui/button';
+import { createClient } from '@/lib/supabase/client';
 import {
     LayoutDashboard,
     Package,
@@ -89,12 +91,18 @@ export function Sidebar() {
                 </div>
             </div>
             <div className="px-3 py-2">
-                <div className="text-sm group flex p-3 w-full justify-start font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition text-zinc-400">
-                    <div className="flex items-center flex-1">
-                        <LogOut className="h-5 w-5 mr-3 text-red-500" />
-                        Logout
-                    </div>
-                </div>
+                <Button
+                    variant="ghost"
+                    className="w-full justify-start text-zinc-400 hover:text-white hover:bg-white/10"
+                    onClick={async () => {
+                        const supabase = createClient();
+                        await supabase.auth.signOut();
+                        window.location.href = '/auth/signin';
+                    }}
+                >
+                    <LogOut className="h-5 w-5 mr-3 text-red-500" />
+                    Logout
+                </Button>
             </div>
         </div>
     );
